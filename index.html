@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tom Layton Journalist</title>
+<meta name="description" content="Journalism by Your Name." />
+
+<style>
+  /* No web fonts — uses Charter / Sitka / Georgia, whatever the
+     reader's machine has. Faster, and looks like a real personal
+     site rather than a template. */
+  :root {
+    --bg: #fafaf6;
+    --text: #1a1a1a;
+    --muted: #6a6a6a;
+    --rule: #d6d2c8;
+    --link-hover: #555;
+    --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  }
+
+  .sections {
+  margin: -1rem 0 2.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+.sections a + a { margin-left: 0.15rem; }
+.sections a + a::before {
+  content: "·";
+  color: var(--muted);
+  margin-right: 0.4rem;
+  display: inline-block;
+}
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+  }
+
+  @media (max-width: 480px) {
+    body { font-size: 17px; }
+    main { padding: 2.25rem 1.25rem 4rem; }
+  }
+
+  a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 1px;
+  }
+  a:hover { color: var(--link-hover); }
+
+  /* ── Header ─────────────────────────────────────── */
+  header { margin-bottom: 2.5rem; }
+  h1 {
+    font-weight: 600;
+    font-size: 1.85rem;
+    margin: 0 0 0.25rem;
+    letter-spacing: -0.005em;
+  }
+  .tagline {
+    margin: 0;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ── Bio + photo ────────────────────────────────── */
+  .intro {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.5rem;
+    margin: 2rem 0 3rem;
+  }
+  @media (max-width: 480px) {
+    .intro { grid-template-columns: 100px 1fr; gap: 1.1rem; }
+  }
+
+  .photo, .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    display: block;
+  }
+  .photo {
+    object-fit: cover;
+    background: #e8e3d8;
+  }
+  .photo-placeholder {
+    background: #ebe7dc;
+    border: 1px dashed #c4bda9;
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.5rem;
+  }
+
+  .intro p { margin: 0 0 0.85em; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  .contact {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+    display: grid;
+    gap: 0.35rem;
+    font-size: 0.95rem;
+  }
+  .contact li { display: flex; gap: 0.65rem; align-items: baseline; }
+  .contact .label {
+    font-variant: small-caps;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-size: 0.78rem;
+    min-width: 4.5rem;
+  }
+
+  /* ── Sections ───────────────────────────────────── */
+  h2 {
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin: 3rem 0 1.25rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ── Clips ──────────────────────────────────────── */
+  .clip {
+    margin: 0 0 1.6rem;
+  }
+  .clip:last-child { margin-bottom: 0; }
+
+  .clip .meta {
+    margin: 0 0 0.15rem;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .clip .meta .pub { font-style: italic; }
+
+  .clip .headline {
+    margin: 0 0 0.25rem;
+    font-size: 1.05rem;
+    line-height: 1.35;
+  }
+  /* Article titles in quotes — the journalistic convention. */
+  .clip .headline::before { content: "“"; }
+  .clip .headline::after  { content: "”"; }
+
+  .clip .desc {
+    margin: 0 0 0.35rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .clip .links {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+  .clip .links a + a { margin-left: 0.15rem; }
+  .clip .links a + a::before {
+    content: "·";
+    color: var(--muted);
+    margin-right: 0.4rem;
+    text-decoration: none;
+    display: inline-block;
+  }
+  /* keep the bullet separator unlinked-looking */
+  .clip .links { color: var(--muted); }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<main>
+
+  <!-- ─── HEADER ─────────────────────────────────────────────── -->
+  <header>
+    <h1>Tom Layton</h1>
+    <p class="tagline">Freelance journalist based in London.</p>
+  </header>
+
+  <nav class="sections">
+  <a href="#exclusives">Exclusives</a>
+  <a href="#specialist">Specialist</a>
+  <a href="#national">National</a>
+  <a href="#local">Local</a>
+  <a href="#student">Student</a>
+</nav>
+
+  <!-- ─── INTRO ──────────────────────────────────────────────────
+       PHOTO: drop a file called headshot.jpg next to this HTML,
+       then replace the <div class="photo-placeholder">...</div>
+       line below with:
+         <img class="photo" src="headshot.jpg" alt="Your Name" />
+       ─────────────────────────────────────────────────────────── -->
+  <section class="intro">
+    <div class="photo-placeholder">Photo</div>
+    <div>
+      <p>
+        I’m a London-based freelance journalist, currently pursuing an MA in International Journalism at City St George’s, University of London. I have worked as a freelancer for nationals, and have also published work for local and specialist outlets. For my student journalism I was awarded “best journalist in the North” by the SPA, and my stories were picked up by local press. I also designed and authored York’s first student journalism newsletter. (sample available here). I began my career as a part-time staff writer for fringe theatre reviews site Everything Theatre.
+      </p>
+
+      <ul class="contact">
+        <li><span class="label">Email</span><a href="mailto:you@example.com">Tom.Layton03@outlook.com; TomLayton03@protonmail.com</a></li>
+        <li><span class="label">Phone</span><a href="tel:+440000000000">+44 (0) 7495 510 563</a></li>
+        <li><span class="label">Signal</span>upon request</li>
+        <li><span class="label">Telegram</span>upon request</li>
+        <li><span class="label">X</span><a href="https://x.com/yourhandle">@tomlayton263</a></li>
+        <li><span class="label">LinkedIn</span><a href="https://www.linkedin.com/in/yourhandle">www.linkedin.com/in/tom-layton-7894a1241</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       CLIP SECTIONS
+
+       Each clip is a small block with:
+         • meta      — publication and date
+         • headline  — wrapped in smart quotes automatically
+         • desc      — optional one-line description (delete if not needed)
+         • links     — one OR more links, separated by middle dots
+
+       For online pieces, link to the article URL.
+       For print-only pieces, scan or photograph the clipping, save the
+       image (e.g. clippings/2024-01-courts.jpg) next to this HTML, and
+       link to that file. The browser will open it full-size in a new tab.
+       Add target="_blank" if you'd like it to open in a new tab.
+       ════════════════════════════════════════════════════════════ -->
+
+  <section id="exclusives">
+    <h2>Exclusives</h2>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Times</span></p>
+      <p class="headline">King Charles donates to red squirrel charity battling the greys</p>
+      <p class="links">
+        <a href="https://www.thetimes.com/uk/environment/article/king-charles-donation-red-squirrel-charity-5p5cht20g">Read it</a>
+        <a href="clippings/2026-03-exclusive.jpg" target="_blank">Print clipping</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Independent</span></p>
+      <p class="headline">Parts of UK hotter than Ibiza and Rome as temperatures break 80-year record</p>
+      <p class="desc">From exclusive lines I contributed to the PA newswire, used across the Nationals and in over 100 local papers.</p>
+      <p class="links">
+        <a href="https://www.independent.co.uk/news/uk/home-news/london-weather-uk-temperatures-kew-gardens-met-office-b2953958.html">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Daily Express</span></p>
+      <p class="headline">I voted Labour but now Rachel Reeves is trying to kill my seaside town hotel</p>
+      <p class="links">
+        <a href="https://www.express.co.uk/news/uk/2145080/i-voted-labour-rachel-reeves-tourist-tax">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Northern Echo</span></p>
+      <p class="headline">Delays to MP offices in Bishop Auckland and Northumberland</p>
+      <p class="links">
+        <a href="https://www.thenorthernecho.co.uk/news/24994936.delays-mp-offices-bishop-auckland-northumberland/">Read it</a>
+      </p>
+    </article>
+
+  </section>
+
+  <section id="national">
+    <h2>National</h2>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Times</span>
+      <p class="headline">Four arrested in raids over ‘£44m home insulation fraud’</p>
+      <p class="links">
+        <a href="https://www.thetimes.com/uk/crime/article/firms-raided-44m-fraud-home-insulation-scheme-5pfswcgdn">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">LBC</span></p>
+      <p class="headline">Iran says Trump must choose between 'impossible' military operation and 'bad deal'</p>
+      <p class="links">
+        <a href="https://www.lbc.co.uk/article/iran-trump-choose-impossible-operation-bad-deal-5HjdYdc_2/">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Daily Express</span></p>
+      <p class="headline">Blow for Royal Navy as Macron announces huge £8.7bn project </p>
+      <p class="links">
+        <a href="https://www.express.co.uk/news/world/2149443/blow-royal-navy-macron-aircraft-carrier?utm_source=mynewsassistant.com&utm_medium=referral&utm_campaign=embedded_search_item_desktop">Read it</a>
+      </p>
+    </article>
+
+  </section>
+
+  <section id="specialist">
+    <h2>Specialist</h2>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">Private Eye</span>
+      <p class="headline">University of York to hand beloved heritage site over to York St John's University</p>
+      <p class="desc">Nooks and Corners, Private Eye Issue 1653</p>
+      <p class="links">
+        <a href="clippings/2025-11-specialist.jpg" target="_blank">Print clipping</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">Global Weekly</span>
+      <p class="headline">Mass arrests in Goma, North Kivu, Democratic Republic of the Congo</p>
+      <p class="links">
+        <a href="https://www.global-weekly.com/post/mass-arrests-in-goma-north-kivu-democratic-republic-of-the-congo">Read it</a>
+      </p>
+    </article>
+
+  </section>
+
+  <section id="local">
+    <h2>Local</h2>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Northern Echo</span>
+      <p class="headline">North East universities 'worrying situation' sparks strikes
+</p>
+      <p class="links">
+        <a href="https://www.thenorthernecho.co.uk/news/24989991.north-east-universities-worrying-situation-sparks-strikes/">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">The Northern Echo</span>
+      <p class="headline">Sedgefield Ball Game traditional brawl in the village green</p>
+      <p class="links">
+        <a href="https://www.thenorthernecho.co.uk/news/24981562.sedgefield-ball-game-traditional-brawl-village-green/">Read it</a>
+      </p>
+    </article>
+
+  </section>
+
+
+  <section id="student">
+    <h2>Student</h2>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">Nouse</span>
+      <p class="headline">Revealed: Inaction on Coroner’s Reports putting local lives at risk</p>
+      <p class="desc">This piece was part of a series of articles campaigning for better river safety in York after the death of a student, and was later <a href="https://nouse.co.uk/articles/2025/05/15/york-mp-calls-for-accountability-over-river-deaths-after-shocking-nouse-findings">praised</a> by local MP Rachael Maskell</p>
+      <p class="links">
+        <a href="https://nouse.co.uk/articles/2025/02/25/revealed-inaction-on-coroners-reports-putting-local-lives-at-risk">Read it</a>
+      </p>
+    </article>
+
+    <article class="clip">
+      <p class="meta"><span class="pub">Nouse</span></p>
+      <p class="headline">Exclusive: Further cuts and voluntary severance at University of York</p>
+      <p class="desc">Featured on Queen Mary UCU’s HE Shrinking list, a definitive resource used by industry leaders.</p>
+
+      <p class="links">
+        <a href="https://nouse.co.uk/articles/2025/02/14/further-cuts-and-voluntary-severance-at-university-of-york">Read it</a>
+      </p>
+    </article>
+
+  </section>
+
+  <footer>
+    Last updated <span id="updated">May 2026</span>.
+  </footer>
+
+</main>
+
+</body>
+</html>
