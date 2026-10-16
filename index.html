@@ -19,8 +19,14 @@
     --serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
   }
 
-  .sections {
+.sections {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
   margin: -1rem 0 2.5rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule);
   font-size: 0.95rem;
   color: var(--muted);
 }
@@ -31,6 +37,9 @@
   margin-right: 0.4rem;
   display: inline-block;
 }
+
+/* Stop section headings hiding under the sticky bar when a nav link is clicked */
+section[id] { scroll-margin-top: 3.5rem; }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
