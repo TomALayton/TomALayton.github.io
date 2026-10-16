@@ -199,6 +199,31 @@ section[id] { scroll-margin-top: 3.5rem; }
     font-size: 0.85rem;
     color: var(--muted);
   }
+
+  /* ── Phone fixes ───────────────────────────────── */
+img { max-width: 100%; height: auto; }
+
+/* Let long emails and URLs break onto a new line instead of pushing the page sideways */
+.intro > div { min-width: 0; }
+.contact a { overflow-wrap: anywhere; }
+.contact li { flex-wrap: wrap; column-gap: 0.65rem; row-gap: 0.1rem; }
+
+@media (max-width: 480px) {
+  /* Photo on top, bio at full width underneath */
+  .intro { grid-template-columns: 1fr; }
+  .intro .photo { width: 140px; }
+
+  /* Keep the sticky nav to one slim line; swipe sideways to see the rest */
+  .sections {
+    white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .sections::-webkit-scrollbar { display: none; }
+
+  .contact .label { min-width: 3.75rem; }
+}
 </style>
 </head>
 <body>
